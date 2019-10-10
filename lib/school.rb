@@ -6,7 +6,7 @@ class School
     self.roster = {}
   end
   def add_student(name, grade)
-    if self.roster.has_key?(grade)
+    if self.roster.has_key?( grade )
       self.roster[grade] << name
     else
       self.roster[grade] = [name]
