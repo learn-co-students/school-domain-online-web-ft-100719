@@ -1,26 +1,28 @@
-#require 'pry'
+require 'pry'
 class School
-  attr_accessor :sname, :grade, :student
-  attr_reader :sname, :grade, :student
-  def initialize(sname)
-    @sname=sname
-    @ros = {}
+attr_accessor :sname, :grd, :student
+attr_reader :sname, :grd, :student
+
+def initialize(name)
+  @name = "Test School"
+  @rost = {}
+end
+def roster()
+  @rost
+end
+def add_student(student, grd)
+  if @rost[grd]==nil
+  @rost[grd] = []
   end
-  def roster()
-    @ros
-  end
-  def add_student(student, grade)
-    if @ros[grade]==nil
-    @ros[grade] = []
-    end
-    @ros[grade] << student
-  end
-  def grade(grade)
-    @ros[grade]
-  end
-  def sort()
-    @ros[grade].sort_by {|k, v| v}
-    
+  @rost[grd] << student
+end
+def grade(grd)
+  @rost[grd]
+end
+def sort
+  @rost.each do |k, v|
+  v.sort!
   end
 end
-#binding.pry
+end
+
